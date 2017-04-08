@@ -115,6 +115,15 @@ public class LineBotController
         }
     }
 
+    if (eventType.equals("join")){
+    if (payload.events[0].source.type.equals("group")){
+        replyToUser(payload.events[0].replyToken, "Hi Group, this is me whatsongbot! i can guess what song that u text here!");
+    }
+    if (payload.events[0].source.type.equals("room")){
+        replyToUser(payload.events[0].replyToken, "Hi Room, this is me whatsongbot! i can guess what song that u text here!");
+    }
+}
+
     private void pushMessage(String sourceId, String txt){
         TextMessage textMessage = new TextMessage(txt);
         PushMessage pushMessage = new PushMessage(sourceId,textMessage);
